@@ -3,7 +3,7 @@
 ### The version of .net used is 8
 
 ### How to Run
-Clone this project from and select EGDrinksAPI as startup project
+Clone this project to your desktop, Open with Visual studio and select EGDrinksAPI as startup project. 
 
 ### This project consist of solution with different project.  Each folder represent what the project is for.
 1. The EGDrinksAPI is can be tested with swagger or Postman
