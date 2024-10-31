@@ -9,7 +9,7 @@ namespace EGDrinksAPI.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        private readonly ILogger<ProductsController> _logger; // Inject the logger
+        private readonly ILogger<ProductsController> _logger; // create the logger
 
         public ProductsController(IProductRepository productRepository, ILogger<ProductsController> logger)
         {
@@ -37,8 +37,8 @@ namespace EGDrinksAPI.Controllers
         {
             if (product == null)
             {
-                _logger.LogError("Product is null");
-                return BadRequest("Product cannot be null");
+                _logger.LogError("Product is empty");
+                return BadRequest("Product cannot be empty");
             }
 
             _logger.LogInformation($"Adding a new product: {product.Name}, Price: {product.Price}");
