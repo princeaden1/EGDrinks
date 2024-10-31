@@ -28,7 +28,7 @@ namespace Tests
         [Fact]
         public async Task AddProduct_ShouldAddProduct()
         {
-            var product = new Product { Name = "Test Drink", Price = 10.5M };
+            var product = new Product { Name = "Test Drink", Price = 10.5M, Category= "Non Alcoholic", Description="Less Sugar" };
             await _repository.AddProductAsync(product);
             var products = await _repository.GetAllProductsAsync();
 
