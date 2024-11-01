@@ -41,6 +41,20 @@ namespace EGDrinksAPI.Controllers
                 return BadRequest("Product cannot be empty");
             }
 
+            // Input sanitization for product name
+            var sanitizedProductName = product.Name.Trim();
+            var sanitizedProductDesc = product.Description.Trim();
+            var sanitizedProductCat = product.Category.Trim();
+
+            if (string.IsNullOrWhiteSpace(sanitizedProductName) || string.IsNullOrWhiteSpace(sanitizedProductDesc) || string.IsNullOrWhiteSpace(sanitizedProductCat))
+            {
+                return BadRequest("Product name cannot be empty or just whitespace.");
+            }
+
+            product.Name = sanitizedProductName;
+            product.Description = sanitizedProductDesc;
+            product.Category = sanitizedProductCat;
+
             _logger.LogInformation($"Adding a new product: {product.Name}, Price: {product.Price}");
             await _productRepository.AddProductAsync(product);
 
